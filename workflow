@@ -1,5 +1,5 @@
 #!/bin/bash
-# Workflow automization tool
+# Workflow automatization tool
 
 # Bash configuration
 shopt -s nullglob # Expand globs with zero matches to zero arguments instead of the glob pattern
