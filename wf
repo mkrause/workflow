@@ -1,0 +1,12 @@
+#!/bin/bash
+# Workflow automization tool
+
+# Get the absolute path for the directory containing the current script
+# Source: http://stackoverflow.com/questions/59895
+root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Directory containing the workflow script
+script_dir="${root_dir}/workflow"
+
+# Run the actual script
+. "${script_dir}/workflow.sh"

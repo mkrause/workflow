@@ -1,5 +1,0 @@
-# Local parameters
-
-config_open() {
-    return
-}
