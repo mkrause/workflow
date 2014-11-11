@@ -7,6 +7,6 @@ config_open() {
 }
 
 # Import local params
-if [ -f "${script_dir}/config/params.sh" ]; then
-    . "${script_dir}/config/params.sh"
+if [ -f "${path_script}/config/params.sh" ]; then
+    . "${path_script}/config/params.sh"
 fi
