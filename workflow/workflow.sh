@@ -69,9 +69,9 @@ EOT
 # Basic commands
 # --------------------------------
 
-command_names+=("install")
+command_names+=("self-install")
 command_descriptions+=("Install workflow")
-cmd_install() {
+cmd_self_install() {
     local force=0
     local path_params="${path_script}/config/params.sh"
     local path_params_dist="${path_script}/config/params.sh.dist"
@@ -148,7 +148,7 @@ parse_options() {
 
 # Import modules
 # (Add your own project modules here)
-. "${path_script}/modules/project.sh"
+. "${path_script}/modules/idealbody.sh"
 
 # Parse command line options
 cmd=""
@@ -159,9 +159,9 @@ parse_options "$@"
 # Not installed yet?
 path_params_rel="config/params.sh"
 path_params="${path_script}/${path_params_rel}"
-if [ ! -f "$path_params" ] && [ "$cmd" != "install" ]; then
+if [ ! -f "$path_params" ] && [ "$cmd" != "self-install" ]; then
     echo_error -n "Couldn't find local configuration. Please create and modify"
-    echo_error " '${path_params_rel}' or run the 'install' command."
+    echo_error " '${path_params_rel}' or run the 'self-install' command."
     exit 1
 fi
 
