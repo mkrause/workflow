@@ -148,7 +148,7 @@ parse_options() {
 
 # Import modules
 # (Add your own project modules here)
-. "${path_script}/modules/idealbody.sh"
+. "${path_script}/modules/project.sh"
 
 # Parse command line options
 cmd=""
