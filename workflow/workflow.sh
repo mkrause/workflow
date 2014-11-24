@@ -171,7 +171,7 @@ wf_main() {
     for command_name in "${command_names[@]}"; do
         if [ "$command_name" = "$cmd" ]; then
             # Convert to corresponding function name
-            local cmd_fn_name="cmd_${command_name/-/_}"
+            local cmd_fn_name="cmd_${command_name//-/_}"
             
             # Run the command
             $cmd_fn_name "${args[@]}" "${options[@]}"
