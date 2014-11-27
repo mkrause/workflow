@@ -27,7 +27,14 @@ echo_color() {
     done
     
     text="${text%?}" # Remove the last space character
-    echo -e ${options[@]} "${color}${text}${col_reset}"
+    
+    # Detect support for colors in shell output
+    local num_colors="$(tput colors)"
+    if [ "${num_colors}" -lt 256 ]; then
+        echo "${text}"
+    else
+        echo -e ${options[@]} "${color}${text}${col_reset}"
+    fi
 }
 
 echo_red() { echo_color --color=$col_red "$@"; }
