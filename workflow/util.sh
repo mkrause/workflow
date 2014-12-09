@@ -106,3 +106,8 @@ files_same() {
     diff "$file_local" "$file_remote" >/dev/null 2>/dev/null
     return $?
 }
+
+# Normalize the given path
+realpath() {
+    echo $(cd $1 && pwd)
+}
