@@ -42,7 +42,7 @@ EOT
     # Calculate maximum string length among command names (needed for spacing)
     local max_name_length=0
     for command_name in "${command_names[@]}"; do
-        local name_length=$(expr length $command_name)
+        local name_length=${#command_name}
         if [ "$name_length" -gt "$max_name_length" ]; then
             max_name_length=$name_length
         fi
@@ -53,7 +53,7 @@ EOT
         echo -n "${command_names[idx]}"
         
         # Add spacing to separate names and descriptions in two columns
-        local name_length=$(expr length ${command_names[idx]})
+        local name_length=${#command_names[idx]}
         local col=$(expr $max_name_length - $name_length + 8)
         for (( i=1; i<=col; i++)); do echo -n ' '; done
         
