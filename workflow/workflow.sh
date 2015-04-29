@@ -108,7 +108,7 @@ parse_options() {
     options=()
     
     # http://stackoverflow.com/questions/402377
-    for arg in $@; do
+    for arg in "$@"; do
         case "$arg" in
             -h | --help)
                 show_help
@@ -121,14 +121,14 @@ parse_options() {
             # Anything that looks like an option
             -*)
                 # Other options may be parsed later
-                options+=($arg)
+                options+=("$arg")
                 ;;
             # Anything else (either a command or argument)
             *)
                 if [ -z "$cmd" ]; then
                     cmd=$arg
                 else
-                    args+=($arg)
+                    args+=("$arg")
                 fi
                 ;;
         esac
