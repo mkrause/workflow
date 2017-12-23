@@ -11,7 +11,7 @@ wf_configure() {
     
     # Defaults
     
-    config_editor=nano
+    config_editor=vim
     
     config_open() {
         # Needs to be defined locally

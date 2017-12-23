@@ -74,7 +74,7 @@ command_names+=("self-installed")
 command_descriptions+=("Whether workflow has been installed")
 cmd_self_installed() {
     local path_env="${path_root}/.env"
-    local path_env_dist="${path_root}/.env.example.dist"
+    local path_env_dist="${path_root}/.env.example"
     
     test -f "$path_env"
     exit $?
