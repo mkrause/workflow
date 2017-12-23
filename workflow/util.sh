@@ -1,53 +1,6 @@
 #!/bin/bash
 # Utility functions
 
-# Colors
-col_reset="\x1b[39;49;00m"
-col_red="\x1b[31;01m"
-col_green="\x1b[32;01m"
-col_yellow="\x1b[33;01m"
-col_blue="\x1b[34;01m"
-col_magenta="\x1b[35;01m"
-col_cyan="\x1b[36;01m"
-
-echo_color() {
-    local color=$col_green
-    local options=()
-    local text=""
-    
-    # Options parsing
-    for arg in "${@}"; do
-        case "$arg" in
-            --color=*) color="${arg#--color=}" ;;
-            # Anything else that looks like an option
-            -*) options+=($arg) ;;
-            # Non-option arguments
-            *) text="${text}${arg} " ;;
-        esac
-    done
-    
-    text="${text%?}" # Remove the last space character
-    
-    # Detect support for colors in shell output
-    local num_colors="$(tput colors)"
-    if [ "${num_colors}" -lt 256 ]; then
-        echo "${text}"
-    else
-        echo -e ${options[@]} "${color}${text}${col_reset}"
-    fi
-}
-
-echo_red() { echo_color --color=$col_red "$@"; }
-echo_green() { echo_color --color=$col_green "$@"; }
-echo_yellow() { echo_color --color=$col_yellow "$@"; }
-echo_blue() { echo_color --color=$col_blue "$@"; }
-echo_magenta() { echo_color --color=$col_magenta "$@"; }
-echo_cyan() { echo_color --color=$col_cyan "$@"; }
-
-echo_info() { echo_green "$@"; }
-echo_warning() { echo_yellow "$@"; }
-echo_error() { echo_red "$@"; }
-
 # Useful functions to simulate maps (because Bash 3 lacks support)
 
 map_get_key() {
@@ -94,7 +47,7 @@ contains_element() {
 verify_installed() {
     for cmd in $@; do
         if ! which $cmd >/dev/null; then
-            echo_error "ERROR: This script requires \"$cmd\", which is not currently installed"
+            print_error "ERROR: This script requires \"$cmd\", which is not currently installed"
             exit 1
         fi
     done
@@ -105,9 +58,4 @@ verify_installed() {
 files_same() {
     diff "$file_local" "$file_remote" >/dev/null 2>/dev/null
     return $?
-}
-
-# Normalize the given path
-realpath() {
-    echo $(cd $1 && pwd)
 }
