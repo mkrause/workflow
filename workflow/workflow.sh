@@ -85,7 +85,7 @@ command_descriptions+=("Install workflow")
 cmd_self_install() {
     local force=0
     local path_env="${path_root}/.env"
-    local path_env_dist="${path_root}/.env.example.dist"
+    local path_env_dist="${path_root}/.env.example"
     
     # Options parsing
     for arg in "${cli_args[@]}"; do
