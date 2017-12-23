@@ -1,4 +1,23 @@
-# Local parameters
+# Machine-local configuration
+# Please make sure this information is correct for this machine
+
+# Deployment info
+server_vhost="test"
+server_user="root"
+server_db_dbname="db"
+server_db_user="root"
+server_db_pass="root"
+
+server_git_url="git@domain.tld:namespace/repo.git"
+
+server_path_releases="/path/to/releases"
+server_path_project="${server_path_releases}/current"
+server_path_data="/path/to/data" # Machine-local data
+server_path_backup="/path/to/backups"
+
+server_path_httpdconf="/etc/apache2/sites-available/domain.tld"
+
+# Functions
 
 config_open() {
     return
