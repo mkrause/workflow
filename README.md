@@ -28,13 +28,13 @@ root you'll need to adjust the path in `wf`.
 The first time you try to run workflow you'll run into the following error:
 
 > Couldn't find local configuration. Please create and modify
-> '.env' or run the 'install' command.
+> '.env' or run the 'self-install' command.
 
 This means that you haven't configured workflow yet. Projects will usually
 have machine-dependent configuration, including sensitive information like
 passwords, or just for personal preferences (e.g. your preferred editor).
 There is a template available at `.env.example` which you
-can copy and customize (or run `./wf install`).
+can copy and customize (or run `./wf self-install`).
 
 ### Adding new commands
 
