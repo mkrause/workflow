@@ -27,7 +27,7 @@ command_descriptions=()
 # --------------------------------
 
 show_version() {
-    echo "version 1.1"
+    echo "version 2.0.1"
 }
 
 show_help() {
