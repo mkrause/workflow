@@ -1,5 +1,5 @@
 #!/bin/bash
-# Workflow automatization tool
+# Workflow automation tool
 # https://github.com/mkrause/workflow
 
 # This script expects the following variables to be set:
